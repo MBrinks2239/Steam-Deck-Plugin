@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head lang="en">
+    <title>Increment Counter Settings</title>
+    <meta charset="utf-8" />
+    <script src="https://sdpi-components.dev/releases/v3/sdpi-components.js"></script>
+  </head>
+
+  <body>
+    <sdpi-item label="Channel to toggle">
+      <sdpi-select
+        settings="selectedChannel"
+        placeholder="Please choose a channel to toggle"
+      >
+        <option value="master">Master</option>
+        <option value="game">Game</option>
+        <option value="chatRender">Chat</option>
+        <option value="media">Media</option>
+        <option value="aux">Aux</option>
+        <option value="chatCapture">Mic</option>
+      </sdpi-select>
+    </sdpi-item>
+  </body>
+</html>

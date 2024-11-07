@@ -1,0 +1,43 @@
+{
+	"Name": "steelseries-sonar-controls",
+	"Version": "0.1.0.0",
+	"Author": "stellar",
+	"Actions": [
+		{
+			"Name": "Mute sonar channel",
+			"UUID": "com.stellar.steelseries-sonar-controls.mute-channel",
+			"Icon": "imgs/actions/sonar-controls/icon",
+			"Tooltip": "Displays a count, which increments by one on press.",
+			"PropertyInspectorPath": "ui/sonar-controls.html",
+			"Controllers": [
+				"Keypad"
+			],
+			"States": [
+				{
+					"Image": "imgs/actions/sonar-controls/key",
+					"TitleAlignment": "middle"
+				}
+			]
+		}
+	],
+	"Category": "steelseries-sonar-controls",
+	"CategoryIcon": "imgs/plugin/category-icon",
+	"CodePath": "bin/plugin.js",
+	"Description": "easily change the output of your sonar outputs",
+	"Icon": "imgs/plugin/marketplace",
+	"SDKVersion": 2,
+	"Software": {
+		"MinimumVersion": "6.4"
+	},
+	"OS": [
+		{
+			"Platform": "windows",
+			"MinimumVersion": "10"
+		}
+	],
+	"Nodejs": {
+		"Version": "20",
+		"Debug": "--inspect=127.0.0.1:9222"
+	},
+	"UUID": "com.stellar.steelseries-sonar-controls"
+}
