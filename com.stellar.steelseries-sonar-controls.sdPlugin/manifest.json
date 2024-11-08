@@ -6,15 +6,31 @@
 		{
 			"Name": "Mute sonar channel",
 			"UUID": "com.stellar.steelseries-sonar-controls.mute-channel",
-			"Icon": "imgs/actions/sonar-controls/icon",
+			"Icon": "imgs/actions/mute-channel/icon",
 			"Tooltip": "Displays a count, which increments by one on press.",
-			"PropertyInspectorPath": "ui/sonar-controls.html",
+			"PropertyInspectorPath": "ui/mute-channel.html",
 			"Controllers": [
 				"Keypad"
 			],
 			"States": [
 				{
-					"Image": "imgs/actions/sonar-controls/key",
+					"Image": "imgs/actions/mute-channel/key",
+					"TitleAlignment": "middle"
+				}
+			]
+		},
+		{
+			"Name": "Switch sound output of sonar channel",
+			"UUID": "com.stellar.steelseries-sonar-controls.switch-output",
+			"Icon": "imgs/actions/switch-output/icon",
+			"Tooltip": "Displays a count, which increments by one on press.",
+			"PropertyInspectorPath": "ui/switch-output.html",
+			"Controllers": [
+				"Keypad"
+			],
+			"States": [
+				{
+					"Image": "imgs/actions/switch-output/key",
 					"TitleAlignment": "middle"
 				}
 			]

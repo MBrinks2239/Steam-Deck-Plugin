@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head lang="en">
+    <title>Change output of sonar channel</title>
+    <meta charset="utf-8" />
+    <script src="https://sdpi-components.dev/releases/v3/sdpi-components.js"></script>
+  </head>
+
+  <body>
+    <sdpi-item label="Channel to change">
+      <sdpi-select
+        setting="channelToChange"
+        placeholder="Please choose a channel to change"
+      >
+        <option value="all">All</option>
+        <option value="game">Game</option>
+        <option value="chat">Chat</option>
+        <option value="media">Media</option>
+        <option value="aux">Aux</option>
+      </sdpi-select>
+    </sdpi-item>
+    <sdpi-item label="Output to switch to">
+      <sdpi-select
+        setting="outputToChangeTo"
+        placeholder="Please choose an output to switch to"
+        datasource="getOutputs"
+        loading="Loading..."
+      >
+      </sdpi-select>
+    </sdpi-item>
+  </body>
+</html>
