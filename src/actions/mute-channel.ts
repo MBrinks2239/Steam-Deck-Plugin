@@ -1,7 +1,7 @@
 import streamDeck, { action, KeyDownEvent, SingletonAction } from "@elgato/streamdeck";
 import sonar from "../sonar-controller";
 
-@action({ UUID: "com.stellar.steelseries-sonar-controls.switch-output" })
+@action({ UUID: "com.stellar.steelseries-sonar-controls.mute-channel" })
 export class MuteChannel extends SingletonAction<MuteChannelSettings> {
     private readonly sonarInstance = new sonar();
 
