@@ -7,7 +7,7 @@
 			"Name": "Mute sonar channel",
 			"UUID": "com.stellar.steelseries-sonar-controls.mute-channel",
 			"Icon": "imgs/actions/mute-channel/icon",
-			"Tooltip": "Displays a count, which increments by one on press.",
+			"Tooltip": "Mute one of the sonar channels.",
 			"PropertyInspectorPath": "ui/mute-channel.html",
 			"Controllers": [
 				"Keypad"
@@ -23,7 +23,7 @@
 			"Name": "Switch sound output of sonar channel",
 			"UUID": "com.stellar.steelseries-sonar-controls.switch-output",
 			"Icon": "imgs/actions/switch-output/icon",
-			"Tooltip": "Displays a count, which increments by one on press.",
+			"Tooltip": "Change which speaker the sonar channel is outputting to.",
 			"PropertyInspectorPath": "ui/switch-output.html",
 			"Controllers": [
 				"Keypad"
