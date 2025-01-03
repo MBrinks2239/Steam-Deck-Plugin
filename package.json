@@ -18,8 +18,8 @@
     "typescript": "^5.2.2"
   },
   "dependencies": {
-    "@elgato/streamdeck": "^1.0.0",
+    "@elgato/streamdeck": "^1.2.1",
     "@rollup/plugin-json": "^6.1.0",
-    "axios": "^1.7.7"
+    "axios": "^1.7.9"
   }
 }

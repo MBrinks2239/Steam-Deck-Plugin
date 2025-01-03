@@ -5,7 +5,7 @@ import streamDeck, {
   SendToPluginEvent,
   SingletonAction,
 } from "@elgato/streamdeck";
-import sonar from "../sonar-controller";
+import sonar from "../managers/sonar-controller";
 
 @action({ UUID: "com.stellar.steelseries-sonar-controls.switch-output" })
 export class SwitchOutput extends SingletonAction<SwitchOutputSettings> {

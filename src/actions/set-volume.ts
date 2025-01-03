@@ -1,9 +1,12 @@
 import streamDeck, {
   action,
+  DialAction,
+  DidReceiveSettingsEvent,
+  KeyAction,
   KeyDownEvent,
   SingletonAction,
 } from "@elgato/streamdeck";
-import sonar from "../sonar-controller";
+import sonar from "../managers/sonar-controller";
 import { VolumeData } from "../types/volume-data";
 
 @action({ UUID: "com.stellar.steelseries-sonar-controls.set-volume" })
@@ -15,17 +18,43 @@ export class SetVolume extends SingletonAction<SetVolumeSettings> {
       `Set volume for channel: ${ev.payload.settings.selectedChannel}`
     );
     const channel = ev.payload.settings.selectedChannel;
-    const response: VolumeData = await this.sonarInstance.getVolumeData();
+    const response = await this.sonarInstance.getVolumeData();
 
     const volume = response.masters.classic.volume;
 
-    const newVolume = normalizeVolume(volume, ev.payload.settings.stepSize, ev.payload.settings.increment);
+    const newVolume = normalizeVolume(
+      volume,
+      ev.payload.settings.stepSize,
+      ev.payload.settings.increment
+    );
 
-    streamDeck.settings.setGlobalSettings({
-        currentVolume: newVolume,
+    this.actions.forEach((action) => {
+      checkForSetTitle(action, newVolume * 100);
     });
 
     await this.sonarInstance.setVolume(channel, newVolume);
+  }
+
+  // override async onDidReceiveSettings(
+  //   ev: DidReceiveSettingsEvent<SetVolumeSettings>
+  // ): Promise<void> {
+  //   if (ev.payload.settings.showVolume) {
+  //     const volumeData = await this.sonarInstance.getVolumeData();
+  //     const volume = volumeData.masters.classic.volume * 100;
+  //     ev.action.setTitle(volume.toString() + "%");
+  //   } else {
+  //     ev.action.setTitle("");
+  //   }
+  // }
+}
+
+async function checkForSetTitle(
+  action: KeyAction<SetVolumeSettings> | DialAction<SetVolumeSettings>,
+  volume: number
+) {
+  const settings = await action.getSettings();
+  if (settings.showVolume) {
+    await action.setTitle(volume.toString() + "%");
   }
 }
 
@@ -55,8 +84,4 @@ type SetVolumeSettings = {
   stepSize: number;
   increment: boolean;
   showVolume: boolean;
-};
-
-type GlobalSettings = {
-    currentVolume: number;
 };

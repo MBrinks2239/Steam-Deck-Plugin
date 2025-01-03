@@ -3,6 +3,7 @@ import * as path from "path";
 import streamDeck from "@elgato/streamdeck";
 import axios from "axios";
 import * as https from "https";
+import { VolumeData } from "../types/volume-data";
 
 export type AudioDevice = {
   friendlyName: string;
@@ -136,7 +137,7 @@ export default class Sonar {
     if (response.status !== 200)
       throw new ServerNotAccessibleError(response.status);
 
-    const steelseriesState = response.data as any;
+    const steelseriesState = response.data;
     if (!steelseriesState.subApps.sonar.isEnabled)
       throw new SonarNotEnabledError();
     if (!steelseriesState.subApps.sonar.isReady)
@@ -149,7 +150,7 @@ export default class Sonar {
     if (!this.webServerAddress) throw new WebServerAddressNotFoundError();
   }
 
-  async getVolumeData(): Promise<any> {
+  async getVolumeData(): Promise<VolumeData> {
     streamDeck.logger.info("Getting volume data");
     const response = await axiosInstance.get(
       `${this.webServerAddress}${this.volumePath}`,
