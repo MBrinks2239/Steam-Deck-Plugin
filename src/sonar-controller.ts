@@ -81,7 +81,7 @@ export default class Sonar {
         process.env["ProgramData"] ?? "",
         "SteelSeries",
         "SteelSeries Engine 3",
-        "coreProps.json"
+        "coreProps.json",
       );
 
     this.loadBaseUrl();
@@ -150,11 +150,13 @@ export default class Sonar {
   }
 
   async getVolumeData(): Promise<any> {
+    streamDeck.logger.info("Getting volume data");
     const response = await axiosInstance.get(
-      `${this.webServerAddress}${this.volumePath}`
+      `${this.webServerAddress}${this.volumePath}`,
     );
-    if (response.status !== 200)
+    if (response.status !== 200) {
       throw new ServerNotAccessibleError(response.status);
+    }
 
     return response.data;
   }
@@ -162,7 +164,7 @@ export default class Sonar {
   async setVolume(
     channel: string,
     volume: number,
-    streamerSlider: string = "streaming"
+    streamerSlider: string = "streaming",
   ): Promise<any> {
     if (!Sonar.channelNames.includes(channel))
       throw new ChannelNotFoundError(channel);
@@ -189,7 +191,7 @@ export default class Sonar {
   async muteChannel(
     channel: string,
     muted: boolean,
-    streamerSlider: string = "streaming"
+    streamerSlider: string = "streaming",
   ): Promise<any> {
     if (!Sonar.channelNames.includes(channel))
       throw new ChannelNotFoundError(channel);
@@ -217,7 +219,7 @@ export default class Sonar {
 
   async getChannelMuteData(channel: string): Promise<any> {
     const response = await axiosInstance.get(
-      `${this.webServerAddress}${this.volumePath}`
+      `${this.webServerAddress}${this.volumePath}`,
     );
     if (response.status !== 200) {
       throw new ServerNotAccessibleError(response.status);
@@ -232,7 +234,7 @@ export default class Sonar {
 
   async getChatMixData(): Promise<any> {
     const response = await axiosInstance.get(
-      `${this.webServerAddress}/chatMix`
+      `${this.webServerAddress}/chatMix`,
     );
     if (response.status !== 200)
       throw new ServerNotAccessibleError(response.status);
@@ -245,7 +247,7 @@ export default class Sonar {
       throw new InvalidMixVolumeError(mixVolume);
 
     const url = `${this.webServerAddress}/chatMix?balance=${JSON.stringify(
-      mixVolume
+      mixVolume,
     )}`;
     const response = await axiosInstance.put(url);
 
@@ -267,7 +269,7 @@ export default class Sonar {
 
   private async switchOutputOfChannel(
     channel: string,
-    output: string
+    output: string,
   ): Promise<any> {
     const url = `${this.webServerAddress}/ClassicRedirections/${channel}/deviceId/${output}`;
     const response = await axiosInstance.put(url);
@@ -279,7 +281,7 @@ export default class Sonar {
 
   async getAudioDevices(): Promise<AudioDevice[]> {
     const response = await axiosInstance.get(
-      `${this.webServerAddress}/AudioDevices`
+      `${this.webServerAddress}/AudioDevices`,
     );
     if (response.status !== 200)
       throw new ServerNotAccessibleError(response.status);

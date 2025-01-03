@@ -1,7 +1,7 @@
 <!doctype html>
 <html>
   <head lang="en">
-    <title>Mute soner Channel</title>
+    <title>Set volume of Channel</title>
     <meta charset="utf-8" />
     <script src="https://sdpi-components.dev/releases/v3/sdpi-components.js"></script>
   </head>
@@ -19,6 +19,21 @@
         <option value="aux">Aux</option>
         <option value="chatCapture">Mic</option>
       </sdpi-select>
+    </sdpi-item>
+    <sdpi-item label="Volume">
+      <sdpi-textfield
+        setting="stepSize"
+        placeholder="Please enter a volume"
+        pattern="[0-9]+"
+        required
+      >
+      </sdpi-textfield>
+    </sdpi-item>
+    <sdpi-item label="increment">
+      <sdpi-checkbox setting="increment">Increment</sdpi-checkbox>
+    </sdpi-item>
+    <sdpi-item label="Show volume as title">
+      <sdpi-checkbox setting="showVolume">Show volume as title</sdpi-checkbox>
     </sdpi-item>
   </body>
 </html>

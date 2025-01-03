@@ -1,59 +1,69 @@
 {
-	"Name": "steelseries-sonar-controls",
-	"Version": "0.1.0.0",
-	"Author": "stellar",
-	"Actions": [
-		{
-			"Name": "Mute sonar channel",
-			"UUID": "com.stellar.steelseries-sonar-controls.mute-channel",
-			"Icon": "imgs/actions/mute-channel/icon",
-			"Tooltip": "Mute one of the sonar channels.",
-			"PropertyInspectorPath": "ui/mute-channel.html",
-			"Controllers": [
-				"Keypad"
-			],
-			"States": [
-				{
-					"Image": "imgs/actions/mute-channel/key",
-					"TitleAlignment": "middle"
-				}
-			]
-		},
-		{
-			"Name": "Switch sound output of sonar channel",
-			"UUID": "com.stellar.steelseries-sonar-controls.switch-output",
-			"Icon": "imgs/actions/switch-output/icon",
-			"Tooltip": "Change which speaker the sonar channel is outputting to.",
-			"PropertyInspectorPath": "ui/switch-output.html",
-			"Controllers": [
-				"Keypad"
-			],
-			"States": [
-				{
-					"Image": "imgs/actions/switch-output/key",
-					"TitleAlignment": "middle"
-				}
-			]
-		}
-	],
-	"Category": "steelseries-sonar-controls",
-	"CategoryIcon": "imgs/plugin/category-icon",
-	"CodePath": "bin/plugin.js",
-	"Description": "easily change the output of your sonar outputs",
-	"Icon": "imgs/plugin/marketplace",
-	"SDKVersion": 2,
-	"Software": {
-		"MinimumVersion": "6.4"
-	},
-	"OS": [
-		{
-			"Platform": "windows",
-			"MinimumVersion": "10"
-		}
-	],
-	"Nodejs": {
-		"Version": "20",
-		"Debug": "--inspect=127.0.0.1:9222"
-	},
-	"UUID": "com.stellar.steelseries-sonar-controls"
+  "Name": "steelseries-sonar-controls",
+  "Version": "0.1.0.0",
+  "Author": "stellar",
+  "Actions": [
+    {
+      "Name": "Mute sonar channel",
+      "UUID": "com.stellar.steelseries-sonar-controls.mute-channel",
+      "Icon": "imgs/actions/mute-channel/icon",
+      "Tooltip": "Mute one of the sonar channels.",
+      "PropertyInspectorPath": "ui/mute-channel.html",
+      "Controllers": ["Keypad"],
+      "States": [
+        {
+          "Image": "imgs/actions/mute-channel/key",
+          "TitleAlignment": "middle"
+        }
+      ]
+    },
+    {
+      "Name": "Set sonar volume",
+      "UUID": "com.stellar.steelseries-sonar-controls.set-volume",
+      "Icon": "imgs/actions/set-volume/icon",
+      "Tooltip": "Mute one of the sonar channels.",
+      "PropertyInspectorPath": "ui/set-volume.html",
+      "Controllers": ["Keypad"],
+      "States": [
+        {
+          "Image": "imgs/actions/set-volume/key",
+          "TitleAlignment": "bottom"
+        }
+      ]
+    },
+    {
+      "Name": "Switch sound output of sonar channel",
+      "UUID": "com.stellar.steelseries-sonar-controls.switch-output",
+      "Icon": "imgs/actions/switch-output/icon",
+      "Tooltip": "Change which speaker the sonar channel is outputting to.",
+      "PropertyInspectorPath": "ui/switch-output.html",
+      "Controllers": ["Keypad"],
+      "States": [
+        {
+          "Image": "imgs/actions/switch-output/key",
+          "TitleAlignment": "middle"
+        }
+      ]
+    }
+  ],
+  "Category": "steelseries-sonar-controls",
+  "CategoryIcon": "imgs/plugin/category-icon",
+  "CodePath": "bin/plugin.js",
+  "Description": "easily change the output of your sonar outputs",
+  "Icon": "imgs/plugin/marketplace",
+  "SDKVersion": 2,
+  "Software": {
+    "MinimumVersion": "6.4"
+  },
+  "OS": [
+    {
+      "Platform": "windows",
+      "MinimumVersion": "10"
+    }
+  ],
+  "Nodejs": {
+    "Version": "20",
+    "Debug": "--inspect=127.0.0.1:54545"
+  },
+  "UUID": "com.stellar.steelseries-sonar-controls"
 }
