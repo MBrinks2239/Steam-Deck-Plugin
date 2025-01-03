@@ -1,0 +1,121 @@
+<!doctype html>
+<html>
+  <head lang="en">
+    <title>Load a full sonar configuration</title>
+    <meta charset="utf-8" />
+    <script src="https://sdpi-components.dev/releases/v3/sdpi-components.js"></script>
+  </head>
+
+  <body>
+    <!-- Game channel -->
+    <sdpi-item label="Game channel volume">
+      <sdpi-textfield
+        setting="gameChannelVolume"
+        placeholder="Please enter a volume"
+        pattern="^([0-9]|([1-9][0-9])|100)$"
+        required
+      >
+      </sdpi-textfield>
+    </sdpi-item>
+    <sdpi-item label="Game channel output">
+      <sdpi-select
+        setting="gameChannelOutput"
+        placeholder="Please choose an output to switch to"
+        datasource="getOutputs"
+        loading="Loading..."
+      >
+      </sdpi-select>
+    </sdpi-item>
+    <sdpi-item label="Game channel should be muted">
+      <sdpi-checkbox setting="gameChannelMute">Mute</sdpi-checkbox>
+    </sdpi-item>
+    <!-- Chat channel -->
+    <sdpi-item label="Chat channel volume">
+      <sdpi-textfield
+        setting="chatChannelVolume"
+        placeholder="Please enter a volume"
+        pattern="^([0-9]|([1-9][0-9])|100)$"
+        required
+      >
+      </sdpi-textfield>
+    </sdpi-item>
+    <sdpi-item label="Chat channel output">
+      <sdpi-select
+        setting="chatChannelOutput"
+        placeholder="Please choose an output to switch to"
+        datasource="getOutputs"
+        loading="Loading..."
+      >
+      </sdpi-select>
+    </sdpi-item>
+    <sdpi-item label="Chat channel should be muted">
+      <sdpi-checkbox setting="chatChannelMute">Mute</sdpi-checkbox>
+    </sdpi-item>
+    <!-- Media channel -->
+    <sdpi-item label="Media channel volume">
+      <sdpi-textfield
+        setting="mediaChannelVolume"
+        placeholder="Please enter a volume"
+        pattern="^([0-9]|([1-9][0-9])|100)$"
+        required
+      >
+      </sdpi-textfield>
+    </sdpi-item>
+    <sdpi-item label="Chat channel output">
+      <sdpi-select
+        setting="mediaChannelOutput"
+        placeholder="Please choose an output to switch to"
+        datasource="getOutputs"
+        loading="Loading..."
+      >
+      </sdpi-select>
+    </sdpi-item>
+    <sdpi-item label="Chat channel should be muted">
+      <sdpi-checkbox setting="mediaChannelMute">Mute</sdpi-checkbox>
+    </sdpi-item>
+    <!-- Aux channel -->
+    <sdpi-item label="Aux channel volume">
+      <sdpi-textfield
+        setting="auxChannelVolume"
+        placeholder="Please enter a volume"
+        pattern="^([0-9]|([1-9][0-9])|100)$"
+        required
+      >
+      </sdpi-textfield>
+    </sdpi-item>
+    <sdpi-item label="Aux channel output">
+      <sdpi-select
+        setting="auxChannelOutput"
+        placeholder="Please choose an output to switch to"
+        datasource="getOutputs"
+        loading="Loading..."
+      >
+      </sdpi-select>
+    </sdpi-item>
+    <sdpi-item label="Aux channel should be muted">
+      <sdpi-checkbox setting="auxChannelMute">Mute</sdpi-checkbox>
+    </sdpi-item>
+    <!-- Mic channel -->
+    <sdpi-item label="Mic channel volume">
+      <sdpi-textfield
+        setting="micChannelVolume"
+        placeholder="Please enter a volume"
+        pattern="^([0-9]|([1-9][0-9])|100)$"
+        required
+      >
+      </sdpi-textfield>
+    </sdpi-item>
+    <sdpi-item label="Mic channel input">
+      <sdpi-select
+        setting="micChannelInput"
+        placeholder="Please choose an output to switch to"
+        datasource="getInputs"
+        loading="Loading..."
+      >
+      </sdpi-select>
+    </sdpi-item>
+    <sdpi-item label="Mic channel should be muted">
+      <sdpi-checkbox setting="micChannelMute">Mute</sdpi-checkbox>
+    </sdpi-item>
+  </body>
+</html>

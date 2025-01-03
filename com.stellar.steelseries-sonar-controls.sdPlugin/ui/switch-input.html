@@ -1,0 +1,20 @@
+<!doctype html>
+<html>
+  <head lang="en">
+    <title>Change input of sonar mic channel</title>
+    <meta charset="utf-8" />
+    <script src="https://sdpi-components.dev/releases/v3/sdpi-components.js"></script>
+  </head>
+
+  <body>
+    <sdpi-item label="Input to switch to">
+      <sdpi-select
+        setting="inputToChangeTo"
+        placeholder="Please choose an input to switch to"
+        datasource="getInputs"
+        loading="Loading..."
+      >
+      </sdpi-select>
+    </sdpi-item>
+  </body>
+</html>

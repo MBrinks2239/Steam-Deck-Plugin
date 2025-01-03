@@ -5,18 +5,14 @@
   "version": "0.2.0",
   "configurations": [
     {
-			"name": "Debug plugin",
-			"type": "node",
-			"request": "attach",
-			"port": 54545,
-			"restart": true,
-			"outFiles": [
-				"${workspaceFolder}/bin/**/*.js"
-			],
-			"resolveSourceMapLocations": [
-				"${workspaceFolder}/**"
-			],
-			"preLaunchTask": "npm: watch"
-		}
+      "name": "Debug plugin",
+      "type": "node",
+      "request": "attach",
+      "port": 54545,
+      "restart": true,
+      "outFiles": ["${workspaceFolder}/bin/**/*.js"],
+      "resolveSourceMapLocations": ["${workspaceFolder}/**"],
+      "preLaunchTask": "npm: watch"
+    }
   ]
 }

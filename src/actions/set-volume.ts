@@ -2,8 +2,10 @@ import streamDeck, {
   action,
   DialAction,
   DidReceiveSettingsEvent,
+  JsonValue,
   KeyAction,
   KeyDownEvent,
+  SendToPluginEvent,
   SingletonAction,
 } from "@elgato/streamdeck";
 import sonar from "../managers/sonar-controller";
@@ -15,53 +17,67 @@ export class SetVolume extends SingletonAction<SetVolumeSettings> {
 
   override async onKeyDown(ev: KeyDownEvent<SetVolumeSettings>): Promise<void> {
     streamDeck.logger.info(
-      `Set volume for channel: ${ev.payload.settings.selectedChannel}`
+      `Set volume for channel: ${ev.payload.settings.selectedChannel}`,
     );
     const channel = ev.payload.settings.selectedChannel;
     const response = await this.sonarInstance.getVolumeData();
 
-    const volume = response.masters.classic.volume;
+    let volume = getVolumeOfChannel(channel, response);
 
     const newVolume = normalizeVolume(
       volume,
       ev.payload.settings.stepSize,
-      ev.payload.settings.increment
+      ev.payload.settings.increment,
     );
 
     this.actions.forEach((action) => {
-      checkForSetTitle(action, newVolume * 100);
+      checkForSetTitle(action, newVolume * 100, this);
     });
 
     await this.sonarInstance.setVolume(channel, newVolume);
   }
-
-  // override async onDidReceiveSettings(
-  //   ev: DidReceiveSettingsEvent<SetVolumeSettings>
-  // ): Promise<void> {
-  //   if (ev.payload.settings.showVolume) {
-  //     const volumeData = await this.sonarInstance.getVolumeData();
-  //     const volume = volumeData.masters.classic.volume * 100;
-  //     ev.action.setTitle(volume.toString() + "%");
-  //   } else {
-  //     ev.action.setTitle("");
-  //   }
-  // }
 }
 
 async function checkForSetTitle(
   action: KeyAction<SetVolumeSettings> | DialAction<SetVolumeSettings>,
-  volume: number
+  volume: number,
+  currentAction: any,
 ) {
   const settings = await action.getSettings();
   if (settings.showVolume) {
-    await action.setTitle(volume.toString() + "%");
+    await action.setTitle(Math.round(volume).toString() + "%");
   }
+}
+
+function getVolumeOfChannel(channel: string, response: VolumeData): number {
+  let volume = 0;
+  switch (channel) {
+    case "master":
+      volume = response.masters.classic.volume;
+      break;
+    case "game":
+      volume = response.devices.game.classic.volume;
+      break;
+    case "chatRender":
+      volume = response.devices.chatRender.classic.volume;
+      break;
+    case "media":
+      volume = response.devices.media.classic.volume;
+      break;
+    case "aux":
+      volume = response.devices.aux.classic.volume;
+      break;
+    case "chatCapture":
+      volume = response.devices.chatCapture.classic.volume;
+      break;
+  }
+  return volume;
 }
 
 function normalizeVolume(
   volume: number,
   stepSize: number,
-  increment: boolean
+  increment: boolean,
 ): number {
   let newVolume = volume + stepSize / 100;
   if (!increment) {
