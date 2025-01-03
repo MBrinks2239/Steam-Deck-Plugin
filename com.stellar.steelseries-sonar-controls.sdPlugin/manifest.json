@@ -1,101 +1,111 @@
 {
-  "Name": "Steelseries Sonar Controls",
-  "Version": "0.1.0.0",
-  "Author": "stellar",
-  "Actions": [
-    {
-      "Name": "Mute sonar channel",
-      "UUID": "com.stellar.steelseries-sonar-controls.mute-channel",
-      "Icon": "imgs/actions/mute-channel/volume_off",
-      "Tooltip": "Mute one of the sonar channels.",
-      "PropertyInspectorPath": "ui/mute-channel.html",
-      "Controllers": ["Keypad"],
-      "States": [
-        {
-          "Image": "imgs/actions/mute-channel/volume_up",
-          "TitleAlignment": "middle"
-        },
-        {
-          "Image": "imgs/actions/mute-channel/volume_off",
-          "TitleAlignment": "middle"
-        }
-      ]
-    },
-    {
-      "Name": "Set sonar volume",
-      "UUID": "com.stellar.steelseries-sonar-controls.set-volume",
-      "Icon": "imgs/actions/set-volume/volume_up",
-      "Tooltip": "Mute one of the sonar channels.",
-      "PropertyInspectorPath": "ui/set-volume.html",
-      "Controllers": ["Keypad"],
-      "States": [
-        {
-          "Image": "imgs/actions/set-volume/volume_up",
-          "TitleAlignment": "bottom"
-        }
-      ]
-    },
-    {
-      "Name": "Switch sound output of sonar channel",
-      "UUID": "com.stellar.steelseries-sonar-controls.switch-output",
-      "Icon": "imgs/actions/switch-output/headphones",
-      "Tooltip": "Change which speaker the sonar channel is outputting to.",
-      "PropertyInspectorPath": "ui/switch-output.html",
-      "Controllers": ["Keypad"],
-      "States": [
-        {
-          "Image": "imgs/actions/switch-output/headphones",
-          "TitleAlignment": "middle"
-        }
-      ]
-    },
-    {
-      "Name": "Switch sound input of sonar channel",
-      "UUID": "com.stellar.steelseries-sonar-controls.switch-input",
-      "Icon": "imgs/actions/switch-input/mic",
-      "Tooltip": "Change which speaker the sonar channel is inputting to.",
-      "PropertyInspectorPath": "ui/switch-input.html",
-      "Controllers": ["Keypad"],
-      "States": [
-        {
-          "Image": "imgs/actions/switch-input/mic",
-          "TitleAlignment": "middle"
-        }
-      ]
-    },
-    {
-      "Name": "Load a preset sonar configuration",
-      "UUID": "com.stellar.steelseries-sonar-controls.load-full-config",
-      "Icon": "imgs/actions/load-full-config/package",
-      "Tooltip": "Change which speaker the sonar channel is outputting to.",
-      "PropertyInspectorPath": "ui/load-full-config.html",
-      "Controllers": ["Keypad"],
-      "States": [
-        {
-          "Image": "imgs/actions/load-full-config/package",
-          "TitleAlignment": "middle"
-        }
-      ]
-    }
-  ],
-  "Category": "Steelseries Sonar Controls",
-  "CategoryIcon": "imgs/plugin/category-icon",
-  "CodePath": "bin/plugin.js",
-  "Description": "easily change the output of your sonar outputs",
-  "Icon": "imgs/plugin/steelseries",
-  "SDKVersion": 2,
-  "Software": {
-    "MinimumVersion": "6.4"
-  },
-  "OS": [
-    {
-      "Platform": "windows",
-      "MinimumVersion": "10"
-    }
-  ],
-  "Nodejs": {
-    "Version": "20",
-    "Debug": "--inspect=127.0.0.1:54545"
-  },
-  "UUID": "com.stellar.steelseries-sonar-controls"
+	"Name": "Steelseries Sonar Controls",
+	"Version": "0.1.0.0",
+	"Author": "stellar",
+	"Actions": [
+		{
+			"Name": "Mute sonar channel",
+			"UUID": "com.stellar.steelseries-sonar-controls.mute-channel",
+			"Icon": "imgs/actions/mute-channel/volume_off",
+			"Tooltip": "Mute one of the sonar channels.",
+			"PropertyInspectorPath": "ui/mute-channel.html",
+			"Controllers": [
+				"Keypad"
+			],
+			"States": [
+				{
+					"Image": "imgs/actions/mute-channel/volume_up",
+					"TitleAlignment": "middle"
+				},
+				{
+					"Image": "imgs/actions/mute-channel/volume_off",
+					"TitleAlignment": "middle"
+				}
+			]
+		},
+		{
+			"Name": "Set sonar volume",
+			"UUID": "com.stellar.steelseries-sonar-controls.set-volume",
+			"Icon": "imgs/actions/set-volume/volume_up",
+			"Tooltip": "Mute one of the sonar channels.",
+			"PropertyInspectorPath": "ui/set-volume.html",
+			"Controllers": [
+				"Keypad"
+			],
+			"States": [
+				{
+					"Image": "imgs/actions/set-volume/volume_up",
+					"TitleAlignment": "bottom"
+				}
+			]
+		},
+		{
+			"Name": "Switch sound output of sonar channel",
+			"UUID": "com.stellar.steelseries-sonar-controls.switch-output",
+			"Icon": "imgs/actions/switch-output/headphones",
+			"Tooltip": "Change which speaker the sonar channel is outputting to.",
+			"PropertyInspectorPath": "ui/switch-output.html",
+			"Controllers": [
+				"Keypad"
+			],
+			"States": [
+				{
+					"Image": "imgs/actions/switch-output/headphones",
+					"TitleAlignment": "middle"
+				}
+			]
+		},
+		{
+			"Name": "Switch sound input of sonar channel",
+			"UUID": "com.stellar.steelseries-sonar-controls.switch-input",
+			"Icon": "imgs/actions/switch-input/mic",
+			"Tooltip": "Change which speaker the sonar channel is inputting to.",
+			"PropertyInspectorPath": "ui/switch-input.html",
+			"Controllers": [
+				"Keypad"
+			],
+			"States": [
+				{
+					"Image": "imgs/actions/switch-input/mic",
+					"TitleAlignment": "middle"
+				}
+			]
+		},
+		{
+			"Name": "Load a preset sonar configuration",
+			"UUID": "com.stellar.steelseries-sonar-controls.load-full-config",
+			"Icon": "imgs/actions/load-full-config/package",
+			"Tooltip": "Change which speaker the sonar channel is outputting to.",
+			"PropertyInspectorPath": "ui/load-full-config.html",
+			"Controllers": [
+				"Keypad"
+			],
+			"States": [
+				{
+					"Image": "imgs/actions/load-full-config/package",
+					"TitleAlignment": "middle"
+				}
+			]
+		}
+	],
+	"Category": "Steelseries Sonar Controls",
+	"CategoryIcon": "imgs/plugin/category-icon",
+	"CodePath": "bin/plugin.js",
+	"Description": "easily change the output of your sonar outputs",
+	"Icon": "imgs/plugin/steelseries",
+	"SDKVersion": 2,
+	"Software": {
+		"MinimumVersion": "6.4"
+	},
+	"OS": [
+		{
+			"Platform": "windows",
+			"MinimumVersion": "10"
+		}
+	],
+	"Nodejs": {
+		"Version": "20",
+		"Debug": "--inspect=127.0.0.1:54545"
+	},
+	"UUID": "com.stellar.steelseries-sonar-controls"
 }
